@@ -17,7 +17,7 @@ public class DisposalGuideLine {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column()
+    @Column(nullable = false)
     private String description;
     @ManyToOne
     @JoinColumn(name = "category")

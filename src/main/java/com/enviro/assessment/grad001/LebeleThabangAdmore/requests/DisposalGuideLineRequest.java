@@ -1,6 +1,8 @@
 package com.enviro.assessment.grad001.LebeleThabangAdmore.requests;
 
-import com.enviro.assessment.grad001.LebeleThabangAdmore.models.Category;
 
-public record DisposalGuideLineRequest(String description) {
+import jakarta.validation.constraints.NotBlank;
+import org.springframework.lang.NonNull;
+
+public record DisposalGuideLineRequest(@NonNull @NotBlank String description) {
 }

@@ -1,9 +1,10 @@
-package com.enviro.assessment.grad001.LebeleThabangAdmore.contollers;
+package com.enviro.assessment.grad001.LebeleThabangAdmore.controllers;
 
 import com.enviro.assessment.grad001.LebeleThabangAdmore.dtos.CategoryDTO;
 import com.enviro.assessment.grad001.LebeleThabangAdmore.requests.CategoryRequest;
 import com.enviro.assessment.grad001.LebeleThabangAdmore.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,13 +34,13 @@ public class CategoryController {
 
     @PostMapping()
     public void addCategory (
-            @RequestBody CategoryRequest categoryRequest) {
+            @RequestBody @Validated CategoryRequest categoryRequest) {
         categoryService.addCategory(categoryRequest);
     }
     @PutMapping("/{id}")
     public void updateCategory(
             @PathVariable("id") Long id,
-            @RequestBody CategoryRequest categoryRequest) {
+            @RequestBody @Validated CategoryRequest categoryRequest) {
         categoryService.updateCategory(id,categoryRequest);
     }
 

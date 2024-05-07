@@ -1,9 +1,10 @@
-package com.enviro.assessment.grad001.LebeleThabangAdmore.contollers;
+package com.enviro.assessment.grad001.LebeleThabangAdmore.controllers;
 
 import com.enviro.assessment.grad001.LebeleThabangAdmore.dtos.DisposalGuideLineDTO;
 import com.enviro.assessment.grad001.LebeleThabangAdmore.requests.DisposalGuideLineRequest;
 import com.enviro.assessment.grad001.LebeleThabangAdmore.services.DisposalGuideLineService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,14 +28,14 @@ public class DisposalGuideLineController {
 
     @PostMapping("{categoryId}")
     public void saveGuideLine(
-            @RequestBody DisposalGuideLineRequest guideLineRequest,
+            @RequestBody @Validated DisposalGuideLineRequest guideLineRequest,
             @PathVariable("categoryId") Long categoryId) {
         disposalGuideLineService.addDisposalGuideLine(guideLineRequest,categoryId);
     }
 
     @PutMapping("{id}/guideline/{categoryId}")
     public void updateGuideLine (@PathVariable("id") Long id,
-                                @RequestBody DisposalGuideLineRequest guideLineRequest,
+                                @RequestBody @Validated DisposalGuideLineRequest guideLineRequest,
                                 @PathVariable("categoryId") Long categoryId) {
         disposalGuideLineService.updateDisposalGuideLine(id,guideLineRequest,categoryId);
     }

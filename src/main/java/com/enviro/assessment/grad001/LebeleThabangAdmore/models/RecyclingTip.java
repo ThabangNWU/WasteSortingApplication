@@ -17,7 +17,7 @@ public class RecyclingTip {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column()
+    @Column(nullable = false)
     private String tip;
     @ManyToOne
     @JoinColumn(name = "category")
